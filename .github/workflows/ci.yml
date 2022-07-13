@@ -1,0 +1,57 @@
+name: CI/CD
+
+env:
+  CI: true
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+jobs:
+  ci-cd:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+
+      - name: NPM CI
+        run: npm install
+
+      - name: Repository build
+        run: npm run build
+
+      - name: Tests (with coverage)
+        run: npm test -- --coverage
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build website (Github pages)
+        run: npm run build-doc --if-present
+
+      - name: Publish website on GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.1.2
+        with:
+          build_dir: dist-ghpages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare distribution
+        run: cp package.json README.md LICENSE CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md ./dist
+
+      - name: Publish
+        run: |
+          npm pack
+          npx semantic-release
+        working-directory: ./dist
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

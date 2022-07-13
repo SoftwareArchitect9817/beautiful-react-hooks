@@ -1,0 +1,9 @@
+{
+  "require": [
+    "jsdom-global/register",
+    "@babel/register",
+    "regenerator-runtime/runtime",
+    "mock-local-storage",
+    "./test/_setup.js"
+  ]
+}

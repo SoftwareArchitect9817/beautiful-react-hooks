@@ -1,0 +1,319 @@
+{
+  "name": "beautiful-react-hooks",
+  "version": "3.7.0",
+  "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
+  "main": "index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "lint": "eslint src/ --ext .ts",
+    "build-types": "tsc --project ./tsconfig.types.json",
+    "build-cjs": "tsc --project ./tsconfig.cjs.json",
+    "build-esm": "tsc --project ./tsconfig.esm.json",
+    "build": "npx del-cli dist && npm run build-cjs && npm run build-esm && npm run build-types && echo 'Successfully built'",
+    "build-doc": "npx del-cli dist-ghpages && npx styleguidist build",
+    "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
+    "test:watch": "npm run test -- --watch",
+    "start": "npx styleguidist server",
+    "semantic-release": "semantic-release"
+  },
+  "browserslist": [
+    ">1%",
+    "last 1 version",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonioru/beautiful-react-hooks.git"
+  },
+  "author": {
+    "name": "Antonio Russo",
+    "email": "antonio@beautifulinteractions.com"
+  },
+  "keywords": [
+    "react",
+    "react-hooks"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonioru/beautiful-react-hooks/issues"
+  },
+  "homepage": "https://antonioru.github.io/beautiful-react-hooks/",
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
+    "react-router-dom": ">=5.0.0",
+    "rxjs": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.2",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "7.18.2",
+    "@babel/preset-react": "7.17.12",
+    "@babel/register": "^7.17.7",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/exec": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "8.0.4",
+    "@semantic-release/npm": "9.0.1",
+    "@testing-library/react": "13.3.0",
+    "@testing-library/react-hooks": "8.0.0",
+    "@types/lodash.debounce": "4.0.7",
+    "@types/lodash.throttle": "4.1.7",
+    "@types/react-router-dom": "5.3.3",
+    "@typescript-eslint/eslint-plugin": "5.27.1",
+    "@typescript-eslint/parser": "5.27.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
+    "beautiful-react-ui": "0.57.1",
+    "chai": "^4.3.6",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-plugin-chai-expect": "^3.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "glob": "^8.0.3",
+    "husky": "^8.0.1",
+    "jsdoc-to-markdown": "^7.1.1",
+    "jsdom": "^19.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "10.0.0",
+    "mock-local-storage": "1.1.23",
+    "mutation-observer": "1.0.3",
+    "nyc": "^15.1.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-router-dom": "5.3.3",
+    "react-styleguidist": "^11.2.0",
+    "regenerator-runtime": "0.13.9",
+    "rxjs": "7.5.5",
+    "semantic-release": "^19.0.3",
+    "sinon": "^14.0.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "9.3.0",
+    "typescript": "4.7.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.73.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./index.js"
+    },
+    "./useConditionalTimeout": {
+      "import": "./esm/useConditionalTimeout.js",
+      "require": "./useConditionalTimeout.js"
+    },
+    "./useCookie": {
+      "import": "./esm/useCookie.js",
+      "require": "./useCookie.js"
+    },
+    "./useDebouncedCallback": {
+      "import": "./esm/useDebouncedCallback.js",
+      "require": "./useDebouncedCallback.js"
+    },
+    "./useDefaultedState": {
+      "import": "./esm/useDefaultedState.js",
+      "require": "./useDefaultedState.js"
+    },
+    "./useDidMount": {
+      "import": "./esm/useDidMount.js",
+      "require": "./useDidMount.js"
+    },
+    "./useDrag": {
+      "import": "./esm/useDrag.js",
+      "require": "./useDrag.js"
+    },
+    "./useDragEvents": {
+      "import": "./esm/useDragEvents.js",
+      "require": "./useDragEvents.js"
+    },
+    "./useDropZone": {
+      "import": "./esm/useDropZone.js",
+      "require": "./useDropZone.js"
+    },
+    "./useEvent": {
+      "import": "./esm/useEvent.js",
+      "require": "./useEvent.js"
+    },
+    "./useGeolocation": {
+      "import": "./esm/useGeolocation.js",
+      "require": "./useGeolocation.js"
+    },
+    "./useGeolocationEvents": {
+      "import": "./esm/useGeolocationEvents.js",
+      "require": "./useGeolocationEvents.js"
+    },
+    "./useGeolocationState": {
+      "import": "./esm/useGeolocationState.js",
+      "require": "./useGeolocationState.js"
+    },
+    "./useGlobalEvent": {
+      "import": "./esm/useGlobalEvent.js",
+      "require": "./useGlobalEvent.js"
+    },
+    "./useHorizontalSwipe": {
+      "import": "./esm/useHorizontalSwipe.js",
+      "require": "./useHorizontalSwipe.js"
+    },
+    "./useInfiniteScroll": {
+      "import": "./esm/useInfiniteScroll.js",
+      "require": "./useInfiniteScroll.js"
+    },
+    "./useInterval": {
+      "import": "./esm/useInterval.js",
+      "require": "./useInterval.js"
+    },
+    "./useLifecycle": {
+      "import": "./esm/useLifecycle.js",
+      "require": "./useLifecycle.js"
+    },
+    "./useLocalStorage": {
+      "import": "./esm/useLocalStorage.js",
+      "require": "./useLocalStorage.js"
+    },
+    "./useMediaQuery": {
+      "import": "./esm/useMediaQuery.js",
+      "require": "./useMediaQuery.js"
+    },
+    "./useMouse": {
+      "import": "./esm/useMouse.js",
+      "require": "./useMouse.js"
+    },
+    "./useMouseEvents": {
+      "import": "./esm/useMouseEvents.js",
+      "require": "./useMouseEvents.js"
+    },
+    "./useMouseState": {
+      "import": "./esm/useMouseState.js",
+      "require": "./useMouseState.js"
+    },
+    "./useMutationObserver": {
+      "import": "./esm/useMutationObserver.js",
+      "require": "./useMutationObserver.js"
+    },
+    "./useObservable": {
+      "import": "./esm/useObservable.js",
+      "require": "./useObservable.js"
+    },
+    "./useOnlineState": {
+      "import": "./esm/useOnlineState.js",
+      "require": "./useOnlineState.js"
+    },
+    "./usePreviousValue": {
+      "import": "./esm/usePreviousValue.js",
+      "require": "./usePreviousValue.js"
+    },
+    "./useQueryParam": {
+      "import": "./esm/useQueryParam.js",
+      "require": "./useQueryParam.js"
+    },
+    "./useQueryParams": {
+      "import": "./esm/useQueryParams.js",
+      "require": "./useQueryParams.js"
+    },
+    "./useRenderInfo": {
+      "import": "./esm/useRenderInfo.js",
+      "require": "./useRenderInfo.js"
+    },
+    "./useRequestAnimationFrame": {
+      "import": "./esm/useRequestAnimationFrame.js",
+      "require": "./useRequestAnimationFrame.js"
+    },
+    "./useResizeObserver": {
+      "import": "./esm/useResizeObserver.js",
+      "require": "./useResizeObserver.js"
+    },
+    "./useSearchQuery": {
+      "import": "./esm/useSearchQuery.js",
+      "require": "./useSearchQuery.js"
+    },
+    "./useSessionStorage": {
+      "import": "./esm/useSessionStorage.js",
+      "require": "./useSessionStorage.js"
+    },
+    "./useSpeechSynthesis": {
+      "import": "./esm/useSpeechSynthesis.js",
+      "require": "./useSpeechSynthesis.js"
+    },
+    "./useSwipe": {
+      "import": "./esm/useSwipe.js",
+      "require": "./useSwipe.js"
+    },
+    "./useSwipeEvents": {
+      "import": "./esm/useSwipeEvents.js",
+      "require": "./useSwipeEvents.js"
+    },
+    "./useSystemVoices": {
+      "import": "./esm/useSystemVoices.js",
+      "require": "./useSystemVoices.js"
+    },
+    "./useThrottledCallback": {
+      "import": "./esm/useThrottledCallback.js",
+      "require": "./useThrottledCallback.js"
+    },
+    "./useTimeout": {
+      "import": "./esm/useTimeout.js",
+      "require": "./useTimeout.js"
+    },
+    "./useTouch": {
+      "import": "./esm/useTouch.js",
+      "require": "./useTouch.js"
+    },
+    "./useTouchEvents": {
+      "import": "./esm/useTouchEvents.js",
+      "require": "./useTouchEvents.js"
+    },
+    "./useTouchState": {
+      "import": "./esm/useTouchState.js",
+      "require": "./useTouchState.js"
+    },
+    "./useURLSearchParams": {
+      "import": "./esm/useURLSearchParams.js",
+      "require": "./useURLSearchParams.js"
+    },
+    "./useValidatedState": {
+      "import": "./esm/useValidatedState.js",
+      "require": "./useValidatedState.js"
+    },
+    "./useValueHistory": {
+      "import": "./esm/useValueHistory.js",
+      "require": "./useValueHistory.js"
+    },
+    "./useVerticalSwipe": {
+      "import": "./esm/useVerticalSwipe.js",
+      "require": "./useVerticalSwipe.js"
+    },
+    "./useViewportSpy": {
+      "import": "./esm/useViewportSpy.js",
+      "require": "./useViewportSpy.js"
+    },
+    "./useViewportState": {
+      "import": "./esm/useViewportState.js",
+      "require": "./useViewportState.js"
+    },
+    "./useWillUnmount": {
+      "import": "./esm/useWillUnmount.js",
+      "require": "./useWillUnmount.js"
+    },
+    "./useWindowResize": {
+      "import": "./esm/useWindowResize.js",
+      "require": "./useWindowResize.js"
+    },
+    "./useWindowScroll": {
+      "import": "./esm/useWindowScroll.js",
+      "require": "./useWindowScroll.js"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "all": true,
+  "reporter": ["lcov"],
+  "check-coverage": true,
+  "extension": [ ".js" ],
+  "include": [ "dist/*.js" ],
+  "exclude": [ "dist/index.js", "dist/_virtual/**/*.js" ],
+  "branches": 60,
+  "lines": 70,
+  "functions": 70,
+  "statements": 70
+}
